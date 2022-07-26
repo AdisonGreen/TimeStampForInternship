@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var buttonWasPressed = false
-    @State private var timeOfButtonPress = Text("")
+struct TenButtonsView: View {
+    @State private var buttonPressData: [[String: Int]] = [[:]]
+    @State private var buttonPressedForFirstTime = false
     let howManyButtons = 10
     
     var body: some View {
@@ -17,10 +17,10 @@ struct ContentView: View {
             Spacer()
             VStack {
                 Spacer()
-                ForEach(0...howManyButtons, id: \.self) { number in
+                ForEach(1...howManyButtons, id: \.self) { number in
                     let numberOfButtons = number % 2
                     if numberOfButtons != 0 {
-                        Button(action: buttonPressed) {
+                        Button(action: { buttonPressed(button: number) }) {
                             ZStack {
                                 Text("\(number)")
                                     .foregroundColor(.black)
@@ -29,7 +29,6 @@ struct ContentView: View {
                             }
                         }
                         .scaleEffect(3)
-                        .alert(timeOfButtonPress, isPresented: $buttonWasPressed) { }
                         Spacer()
                     }
                 }
@@ -40,7 +39,7 @@ struct ContentView: View {
                 ForEach(1...howManyButtons, id: \.self) { number in
                     let numberOfButtons = number % 2
                     if numberOfButtons == 0 {
-                        Button(action: buttonPressed) {
+                        Button(action: { buttonPressed(button: number) }) {
                             ZStack {
                                 Text("\(number)")
                                     .foregroundColor(.black)
@@ -49,7 +48,6 @@ struct ContentView: View {
                             }
                         }
                         .scaleEffect(3)
-                        .alert(timeOfButtonPress, isPresented: $buttonWasPressed) { }
                         Spacer()
                     }
                 }
@@ -58,15 +56,23 @@ struct ContentView: View {
         }
     }
     
-    func buttonPressed() {
-        let timeOfButtonPressed = Text(Date.now, format: .dateTime.hour().minute().second())
-        timeOfButtonPress = timeOfButtonPressed
-        buttonWasPressed = true
+    func buttonPressed(button: Int) {
+        let timeOfButtonPress = "\(Date.now.formatted(.dateTime.hour().minute().second()))"
+        
+        if buttonPressedForFirstTime == true {
+            buttonPressData.append([timeOfButtonPress: button])
+            print(buttonPressData)
+        } else {
+            buttonPressData = [[timeOfButtonPress: button]]
+            print(buttonPressData)
+            buttonPressedForFirstTime = true
+        }
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TenButtonsView()
     }
 }
