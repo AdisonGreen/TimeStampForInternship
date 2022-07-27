@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-let myDude: [[String: Int]] = [["Bruh": 1], ["Bro": 2]]
+let myDude: [[Int: String]] = [[1: "Bruh"], [2: "Bro"]]
 
 struct DataView: View {
     var body: some View {
         List {
             ForEach(myDude, id: \.self) { data in
-                Text(data.first?.key ?? "")
-                Text(data.first?.value.description ?? "")
+                ListForDataView(buttonAndTime: data)
             }
         }
     }
