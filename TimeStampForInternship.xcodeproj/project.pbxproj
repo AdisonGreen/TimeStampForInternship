@@ -15,6 +15,7 @@
 		B3D19446289057D7008B3D46 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D19445289057D7008B3D46 /* MainTabBarView.swift */; };
 		B3D19448289079A7008B3D46 /* ListForDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D19447289079A7008B3D46 /* ListForDataView.swift */; };
 		B3D1944A28907FF9008B3D46 /* TimeOfButtonPressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D1944928907FF9008B3D46 /* TimeOfButtonPressData.swift */; };
+		B3D1944C2891C55B008B3D46 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D1944B2891C55B008B3D46 /* TestFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B3D19445289057D7008B3D46 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		B3D19447289079A7008B3D46 /* ListForDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListForDataView.swift; sourceTree = "<group>"; };
 		B3D1944928907FF9008B3D46 /* TimeOfButtonPressData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfButtonPressData.swift; sourceTree = "<group>"; };
+		B3D1944B2891C55B008B3D46 /* TestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				B3D1944328904E3A008B3D46 /* DataView.swift */,
 				B3D19447289079A7008B3D46 /* ListForDataView.swift */,
 				B3D1944928907FF9008B3D46 /* TimeOfButtonPressData.swift */,
+				B3D1944B2891C55B008B3D46 /* TestFile.swift */,
 				B3D19437288617C2008B3D46 /* Assets.xcassets */,
 				B3D19439288617C2008B3D46 /* Preview Content */,
 			);
@@ -152,6 +155,7 @@
 				B3D1944428904E3A008B3D46 /* DataView.swift in Sources */,
 				B3D19436288617C0008B3D46 /* TenButtonsView.swift in Sources */,
 				B3D19448289079A7008B3D46 /* ListForDataView.swift in Sources */,
+				B3D1944C2891C55B008B3D46 /* TestFile.swift in Sources */,
 				B3D1944A28907FF9008B3D46 /* TimeOfButtonPressData.swift in Sources */,
 				B3D19434288617C0008B3D46 /* TimeStampForInternshipApp.swift in Sources */,
 				B3D19446289057D7008B3D46 /* MainTabBarView.swift in Sources */,

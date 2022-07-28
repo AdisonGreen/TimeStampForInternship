@@ -12,12 +12,16 @@ struct ListForDataView: View {
     
     var body: some View {
         HStack {
-            Text("\(buttonAndTime.first?.key ?? 0)")
+            if buttonAndTime.first != nil {
+                Text("\(buttonAndTime.first?.key ?? 0)")
+            }
             Spacer()
             Spacer()
             Spacer()
             Spacer()
-            Text("\(buttonAndTime.first?.value ?? "")")
+            if buttonAndTime.first != nil {
+                Text("\(buttonAndTime.first?.value ?? "")")
+            }
         }
     }
 }

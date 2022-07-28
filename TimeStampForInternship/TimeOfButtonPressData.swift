@@ -8,7 +8,10 @@
 import Foundation
 import SwiftUI
 
-class TimeOfButtonPressData {
-    static let shared = TimeOfButtonPressData()
-    var timeOfButtonData = "Test String"
+class TimeOfButtonPressData: ObservableObject {
+    @Published var timeOfButtonData: [[Int: String]]
+    
+    init(timeOfButtonData: [[Int: String]]) {
+        self.timeOfButtonData = timeOfButtonData
+    }
 }

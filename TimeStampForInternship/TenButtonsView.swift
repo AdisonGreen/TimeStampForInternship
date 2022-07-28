@@ -6,53 +6,57 @@
 //
 
 import SwiftUI
+var buttonPressData: [[Int: String]] = [[:]]
 
 struct TenButtonsView: View {
-    @State private var buttonPressData: [[String: Int]] = [[:]]
+//    @State var buttonPressData: [[Int: String]] = [[:]]
     @State private var buttonPressedForFirstTime = false
     let howManyButtons = 10
+    static let sharedTenButtons = TenButtonsView()
     
     var body: some View {
-        HStack {
-            Spacer()
-            VStack {
+        NavigationView {
+            HStack {
                 Spacer()
-                ForEach(1...howManyButtons, id: \.self) { number in
-                    let numberOfButtons = number % 2
-                    if numberOfButtons != 0 {
-                        Button(action: { buttonPressed(button: number) }) {
-                            ZStack {
-                                Text("\(number)")
-                                    .foregroundColor(.black)
-                                    .zIndex(1)
-                                Image(systemName: "square.fill")
+                VStack {
+                    Spacer()
+                    ForEach(1...howManyButtons, id: \.self) { number in
+                        let numberOfButtons = number % 2
+                        if numberOfButtons != 0 {
+                            Button(action: { buttonPressed(button: number) }) {
+                                ZStack {
+                                    Text("\(number)")
+                                        .foregroundColor(.black)
+                                        .zIndex(1)
+                                    Image(systemName: "square.fill")
+                                }
                             }
+                            .scaleEffect(3)
+                            Spacer()
                         }
-                        .scaleEffect(3)
-                        Spacer()
                     }
                 }
-            }
-            Spacer()
-            VStack {
                 Spacer()
-                ForEach(1...howManyButtons, id: \.self) { number in
-                    let numberOfButtons = number % 2
-                    if numberOfButtons == 0 {
-                        Button(action: { buttonPressed(button: number) }) {
-                            ZStack {
-                                Text("\(number)")
-                                    .foregroundColor(.black)
-                                    .zIndex(1)
-                                Image(systemName: "square.fill")
+                VStack {
+                    Spacer()
+                    ForEach(1...howManyButtons, id: \.self) { number in
+                        let numberOfButtons = number % 2
+                        if numberOfButtons == 0 {
+                            Button(action: { buttonPressed(button: number) }) {
+                                ZStack {
+                                    Text("\(number)")
+                                        .foregroundColor(.black)
+                                        .zIndex(1)
+                                    Image(systemName: "square.fill")
+                                }
                             }
+                            .scaleEffect(3)
+                            Spacer()
                         }
-                        .scaleEffect(3)
-                        Spacer()
                     }
                 }
+                Spacer()
             }
-            Spacer()
         }
     }
     
@@ -60,10 +64,10 @@ struct TenButtonsView: View {
         let timeOfButtonPress = "\(Date.now.formatted(.dateTime.hour().minute().second()))"
         
         if buttonPressedForFirstTime == true {
-            buttonPressData.append([timeOfButtonPress: button])
+            buttonPressData.append([button: timeOfButtonPress])
             print(buttonPressData)
         } else {
-            buttonPressData = [[timeOfButtonPress: button]]
+            buttonPressData = [[button: timeOfButtonPress]]
             print(buttonPressData)
             buttonPressedForFirstTime = true
         }

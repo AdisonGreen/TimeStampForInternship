@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-let myDude: [[Int: String]] = [[1: "Bruh"], [2: "Bro"]]
-
 struct DataView: View {
+    @StateObject var bro: TimeOfButtonPressData = TestFile.shared.bruh
+    
     var body: some View {
         List {
-            ForEach(myDude, id: \.self) { data in
+            ForEach(buttonPressData, id: \.self) { data in
                 ListForDataView(buttonAndTime: data)
             }
         }
