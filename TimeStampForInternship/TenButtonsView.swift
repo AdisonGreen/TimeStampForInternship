@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-var buttonPressData: [[Int: String]] = [[:]]
 
 struct TenButtonsView: View {
-//    @State var buttonPressData: [[Int: String]] = [[:]]
     @State private var buttonPressedForFirstTime = false
     let howManyButtons = 10
     static let sharedTenButtons = TenButtonsView()
@@ -57,6 +55,14 @@ struct TenButtonsView: View {
                 }
                 Spacer()
             }
+            .navigationTitle("Main Screen")
+                .toolbar {
+                    NavigationLink {
+                        DataView()
+                    } label: {
+                        Text("Done")
+                    }
+                }
         }
     }
     

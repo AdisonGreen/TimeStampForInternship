@@ -16,6 +16,7 @@ struct DataView: View {
                 ListForDataView(buttonAndTime: data)
             }
         }
+        .navigationTitle("Data View")
     }
 }
 
