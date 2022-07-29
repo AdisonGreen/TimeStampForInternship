@@ -20,8 +20,9 @@ struct TenButtonsView: View {
                     Spacer()
                     ForEach(1...howManyButtons, id: \.self) { number in
                         let numberOfButtons = number % 2
+                        let numberAsAString = number.description
                         if numberOfButtons != 0 {
-                            Button(action: { buttonPressed(button: number) }) {
+                            Button(action: { buttonPressed(button: numberAsAString) }) {
                                 ZStack {
                                     Text("\(number)")
                                         .foregroundColor(.black)
@@ -39,8 +40,9 @@ struct TenButtonsView: View {
                     Spacer()
                     ForEach(1...howManyButtons, id: \.self) { number in
                         let numberOfButtons = number % 2
+                        let numberAsAString = number.description
                         if numberOfButtons == 0 {
-                            Button(action: { buttonPressed(button: number) }) {
+                            Button(action: { buttonPressed(button: numberAsAString) }) {
                                 ZStack {
                                     Text("\(number)")
                                         .foregroundColor(.black)
@@ -66,15 +68,13 @@ struct TenButtonsView: View {
         }
     }
     
-    func buttonPressed(button: Int) {
+    func buttonPressed(button: String) {
         let timeOfButtonPress = "\(Date.now.formatted(.dateTime.hour().minute().second()))"
         
         if buttonPressedForFirstTime == true {
             buttonPressData.append([button: timeOfButtonPress])
-            print(buttonPressData)
         } else {
             buttonPressData = [[button: timeOfButtonPress]]
-            print(buttonPressData)
             buttonPressedForFirstTime = true
         }
         

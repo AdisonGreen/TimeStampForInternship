@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ListForDataView: View {
-    var buttonAndTime: [Int: String]
+    var buttonAndTime: [String: String]
     
     var body: some View {
         HStack {
             if buttonAndTime.first != nil {
-                Text("\(buttonAndTime.first?.key ?? 0)")
+                Text(buttonAndTime.first?.key ?? "")
             }
             Spacer()
             Spacer()
             Spacer()
             Spacer()
             if buttonAndTime.first != nil {
-                Text("\(buttonAndTime.first?.value ?? "")")
+                Text(buttonAndTime.first?.value ?? "")
             }
         }
     }
@@ -28,6 +28,6 @@ struct ListForDataView: View {
 
 struct ListForDataView_Previews: PreviewProvider {
     static var previews: some View {
-        ListForDataView(buttonAndTime: [1: "11am"])
+        ListForDataView(buttonAndTime: ["1": "11am"])
     }
 }

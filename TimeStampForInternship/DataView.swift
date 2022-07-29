@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct DataView: View {
-    @StateObject var bro: TimeOfButtonPressData = TestFile.shared.bruh
-    
     var body: some View {
         List {
             ForEach(buttonPressData, id: \.self) { data in

@@ -7,4 +7,4 @@
 
 import Foundation
 
-var buttonPressData: [[Int: String]] = [[:]]
+var buttonPressData: [[String: String]] = [[:]]
