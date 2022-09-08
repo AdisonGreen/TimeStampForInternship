@@ -13,12 +13,10 @@ struct KeypadInputView: View {
     @State private var buttonPressedForFirstTime = false
     
     var body: some View {
-        NavigationView {
             TextField("Press a key", text: $userInput)
                 .keyboardType(.numberPad)
                 
                 .onChange(of: userInput) { newValue in
-//                    someFunc()
                     inputInTextField = true
                     userInput = ""
                     
@@ -32,13 +30,17 @@ struct KeypadInputView: View {
                 .disabled(inputInTextField)
                 .navigationTitle("Keypad")
                 .toolbar {
-                    NavigationLink {
-                        DataView()
+                    Button {
+                        convertAndEmailTheData()
                     } label: {
                         Text("Done")
                     }
+
                 }
-        }
+    }
+    
+    func convertAndEmailTheData() {
+        EmailHelper.shared.sendEmail(subject: "My dude", body: "It worked my guy", to: "adisonthereshiram@gmail.com")
     }
         
     func checkInputInTextField(input: String) {

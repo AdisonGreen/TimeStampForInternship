@@ -13,7 +13,6 @@ struct TenButtonsView: View {
     static let sharedTenButtons = TenButtonsView()
     
     var body: some View {
-        NavigationView {
             HStack {
                 Spacer()
                 VStack {
@@ -57,15 +56,19 @@ struct TenButtonsView: View {
                 }
                 Spacer()
             }
-            .navigationTitle("Main Screen")
+            .navigationTitle("No Keypad")
                 .toolbar {
-                    NavigationLink {
-                        DataView()
+                    Button {
+                        sendEmailAndConvert()
                     } label: {
                         Text("Done")
                     }
-                }
+
         }
+    }
+    
+    func sendEmailAndConvert() {
+        EmailHelper.shared.sendEmail(subject: "My dude", body: "It worked my guy", to: "adisonthereshiram@gmail.com")
     }
     
     func buttonPressed(button: String) {

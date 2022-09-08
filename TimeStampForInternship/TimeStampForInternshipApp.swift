@@ -11,7 +11,7 @@ import SwiftUI
 struct TimeStampForInternshipApp: App {
     var body: some Scene {
         WindowGroup {
-            EmailTestScreen()
+            MainScreen()
         }
     }
 }

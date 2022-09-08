@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B34FC0BD28CA5665006AD79E /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FC0BC28CA5665006AD79E /* MainScreen.swift */; };
 		B3D19434288617C0008B3D46 /* TimeStampForInternshipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D19433288617C0008B3D46 /* TimeStampForInternshipApp.swift */; };
 		B3D19436288617C0008B3D46 /* TenButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D19435288617C0008B3D46 /* TenButtonsView.swift */; };
 		B3D19438288617C2008B3D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3D19437288617C2008B3D46 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B34FC0BC28CA5665006AD79E /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		B3D19430288617C0008B3D46 /* TimeStampForInternship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStampForInternship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D19433288617C0008B3D46 /* TimeStampForInternshipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampForInternshipApp.swift; sourceTree = "<group>"; };
 		B3D19435288617C0008B3D46 /* TenButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenButtonsView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				B3D1944D28943A58008B3D46 /* KeypadInputView.swift */,
 				B3D1944F289441C9008B3D46 /* ButtonPressDataVar.swift */,
 				B3D695EC28BE92AA0040B6F9 /* EmailTestScreen.swift */,
+				B34FC0BC28CA5665006AD79E /* MainScreen.swift */,
 				B3D19437288617C2008B3D46 /* Assets.xcassets */,
 				B3D19439288617C2008B3D46 /* Preview Content */,
 			);
@@ -161,6 +164,7 @@
 				B3D19448289079A7008B3D46 /* ListForDataView.swift in Sources */,
 				B3D1944C2891C55B008B3D46 /* EmailAndTxtFile.swift in Sources */,
 				B3D19434288617C0008B3D46 /* TimeStampForInternshipApp.swift in Sources */,
+				B34FC0BD28CA5665006AD79E /* MainScreen.swift in Sources */,
 				B3D1944E28943A58008B3D46 /* KeypadInputView.swift in Sources */,
 				B3D19450289441C9008B3D46 /* ButtonPressDataVar.swift in Sources */,
 			);

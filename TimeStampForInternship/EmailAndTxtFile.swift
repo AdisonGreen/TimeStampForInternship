@@ -29,9 +29,8 @@ class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
         picker.setToRecipients([to])
         picker.mailComposeDelegate = self
         
-        let someTestArray = ["What is this", "My dude"]
-        let myDictionaryThatSucks: [[String: String]] = [["This should be first":"Hopefully this works"], ["SomeMore":"Who knows what happens"]]
-        let someArrayInString = (myDictionaryThatSucks.flatMap({ (key) -> String in
+//        let myDictionaryThatSucks: [[String: String]] = [["This should be first":"Hopefully this works"], ["Some More":"Who knows what happens"]]
+        let someArrayInString = (buttonPressData.compactMap({ (key) -> String in
             return "\(key)\n"
         }) as Array).joined(separator: "")
         
