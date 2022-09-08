@@ -18,6 +18,7 @@ struct KeypadInputView: View {
                 .keyboardType(.numberPad)
                 
                 .onChange(of: userInput) { newValue in
+//                    someFunc()
                     inputInTextField = true
                     userInput = ""
                     
