@@ -11,9 +11,11 @@ struct MainScreen: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                Spacer()
-                Spacer()
+                Group {
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                }
                 NavigationLink("Keypad", destination: KeypadInputView())
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
@@ -33,9 +35,14 @@ struct MainScreen: View {
                 .cornerRadius(40)
                 .shadow(radius: 3)
                 .frame(minWidth: 1, maxWidth: .infinity)
-                Spacer()
-                Spacer()
-                Spacer()
+                Group {
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                }
+                
+//                "jchaston@byu.edu"
             }
         }
     }

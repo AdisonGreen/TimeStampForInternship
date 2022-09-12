@@ -10,7 +10,7 @@ import SwiftUI
 struct EmailTestScreen: View {
     var body: some View {
         Button {
-            EmailHelper.shared.sendEmail(subject: "My dude", body: "It worked my guy", to: "adisonthereshiram@gmail.com")
+            EmailHelper.shared.sendEmail(subject: "Fruit Fly Data", body: "", to: "adisonthereshiram@gmail.com")
         } label: {
             Text("Send Email")
         }

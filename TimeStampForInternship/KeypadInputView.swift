@@ -11,23 +11,25 @@ struct KeypadInputView: View {
     @State private var userInput = ""
     @State private var inputInTextField = false
     @State private var buttonPressedForFirstTime = false
+    @State private var startButtonHasNotBeenPressed = true
     
     var body: some View {
-            TextField("Press a key", text: $userInput)
-                .keyboardType(.numberPad)
-                
-                .onChange(of: userInput) { newValue in
-                    inputInTextField = true
-                    userInput = ""
-                    
-                    checkInputInTextField(input: newValue)
-                    
-                    if userInput == "" {
-                        inputInTextField = false
-                    }
-                    
+        VStack {
+            
+            if startButtonHasNotBeenPressed == true {
+                Button {
+                    startTheTest()
+                } label: {
+                    Text("Start")
                 }
-                .disabled(inputInTextField)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding()
+                .font(.title)
+                .background(.blue)
+                .cornerRadius(40)
+                .shadow(radius: 3)
+                .frame(minWidth: 1, maxWidth: .infinity)
                 .navigationTitle("Keypad")
                 .toolbar {
                     Button {
@@ -35,12 +37,48 @@ struct KeypadInputView: View {
                     } label: {
                         Text("Done")
                     }
+                    .disabled(startButtonHasNotBeenPressed)
 
                 }
+            } else {
+                TextField("Press a key", text: $userInput)
+                    .keyboardType(.numberPad)
+            
+                    .onChange(of: userInput) { newValue in
+                        inputInTextField = true
+                        userInput = ""
+
+                        checkInputInTextField(input: newValue)
+
+                        if userInput == "" {
+                            inputInTextField = false
+                        }
+                        
+                    }
+                    .disabled(inputInTextField)
+                    .navigationTitle("Keypad")
+                    .toolbar {
+                        Button {
+                            convertAndEmailTheData()
+                        } label: {
+                            Text("Done")
+                        }
+                        .disabled(startButtonHasNotBeenPressed)
+
+                    }
+            }
+
+           
+                
+        }
+    }
+    
+    func startTheTest() {
+        startButtonHasNotBeenPressed = false
     }
     
     func convertAndEmailTheData() {
-        EmailHelper.shared.sendEmail(subject: "My dude", body: "It worked my guy", to: "adisonthereshiram@gmail.com")
+        EmailHelper.shared.sendEmail(subject: "Fruit Fly Data", body: "", to: "adisonthereshiram@gmail.com")
     }
         
     func checkInputInTextField(input: String) {

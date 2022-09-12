@@ -11,50 +11,77 @@ struct TenButtonsView: View {
     @State private var buttonPressedForFirstTime = false
     let howManyButtons = 10
     static let sharedTenButtons = TenButtonsView()
+    @State private var startButtonHasNotBeenPressed = true
     
     var body: some View {
             HStack {
-                Spacer()
-                VStack {
+                if startButtonHasNotBeenPressed == false {
                     Spacer()
-                    ForEach(1...howManyButtons, id: \.self) { number in
-                        let numberOfButtons = number % 2
-                        let numberAsAString = number.description
-                        if numberOfButtons != 0 {
-                            Button(action: { buttonPressed(button: numberAsAString) }) {
-                                ZStack {
-                                    Text("\(number)")
-                                        .foregroundColor(.black)
-                                        .zIndex(1)
-                                    Image(systemName: "square.fill")
+                    VStack {
+                        Spacer()
+                        ForEach(1...howManyButtons, id: \.self) { number in
+                            let numberOfButtons = number % 2
+                            let numberAsAString = number.description
+                            if numberOfButtons != 0 {
+                                Button(action: { buttonPressed(button: numberAsAString) }) {
+                                    ZStack {
+                                        Text("\(number)")
+                                            .foregroundColor(.black)
+                                            .zIndex(1)
+                                        Image(systemName: "square.fill")
+                                    }
                                 }
+                                .scaleEffect(3)
+                                Spacer()
                             }
-                            .scaleEffect(3)
-                            Spacer()
                         }
                     }
-                }
-                Spacer()
-                VStack {
                     Spacer()
-                    ForEach(1...howManyButtons, id: \.self) { number in
-                        let numberOfButtons = number % 2
-                        let numberAsAString = number.description
-                        if numberOfButtons == 0 {
-                            Button(action: { buttonPressed(button: numberAsAString) }) {
-                                ZStack {
-                                    Text("\(number)")
-                                        .foregroundColor(.black)
-                                        .zIndex(1)
-                                    Image(systemName: "square.fill")
+                    VStack {
+                        Spacer()
+                        ForEach(1...howManyButtons, id: \.self) { number in
+                            let numberOfButtons = number % 2
+                            let numberAsAString = number.description
+                            if numberOfButtons == 0 {
+                                Button(action: { buttonPressed(button: numberAsAString) }) {
+                                    ZStack {
+                                        Text("\(number)")
+                                            .foregroundColor(.black)
+                                            .zIndex(1)
+                                        Image(systemName: "square.fill")
+                                    }
                                 }
+                                .scaleEffect(3)
+                                Spacer()
                             }
-                            .scaleEffect(3)
-                            Spacer()
                         }
                     }
+                    Spacer()
+                } else {
+                    Button {
+                        startTheTest()
+                    } label: {
+                        Text("Start")
+                    }
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .font(.title)
+                    .background(.blue)
+                    .cornerRadius(40)
+                    .shadow(radius: 3)
+                    .frame(minWidth: 1, maxWidth: .infinity)
+                    .navigationTitle("No Keypad")
+                    .toolbar {
+                        Button {
+                            sendEmailAndConvert()
+                        } label: {
+                            Text("Done")
+                        }
+                        .disabled(startButtonHasNotBeenPressed)
+
+                    }
                 }
-                Spacer()
             }
             .navigationTitle("No Keypad")
                 .toolbar {
@@ -63,12 +90,17 @@ struct TenButtonsView: View {
                     } label: {
                         Text("Done")
                     }
+                    .disabled(startButtonHasNotBeenPressed)
 
         }
     }
     
+    func startTheTest() {
+        startButtonHasNotBeenPressed = false
+    }
+    
     func sendEmailAndConvert() {
-        EmailHelper.shared.sendEmail(subject: "My dude", body: "It worked my guy", to: "adisonthereshiram@gmail.com")
+        EmailHelper.shared.sendEmail(subject: "Fruit Fly Data", body: "", to: "adisonthereshiram@gmail.com")
     }
     
     func buttonPressed(button: String) {
