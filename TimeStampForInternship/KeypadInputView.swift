@@ -78,7 +78,7 @@ struct KeypadInputView: View {
     }
     
     func convertAndEmailTheData() {
-        EmailHelper.shared.sendEmail(subject: "Fruit Fly Data", body: "", to: "adisonthereshiram@gmail.com")
+        EmailHelper.shared.sendEmail(subject: "Fruit Fly Data", body: "", to: "Jchaston@byu.edu")
     }
         
     func checkInputInTextField(input: String) {

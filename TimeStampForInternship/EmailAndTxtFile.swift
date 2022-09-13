@@ -11,7 +11,7 @@ import MessageUI
 class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
     public static let shared = EmailHelper()
     private override init() {
-        //
+        
     }
     
     func sendEmail(subject:String, body:String, to:String){
@@ -19,7 +19,7 @@ class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
             print("No mail account found")
             // Todo: Add a way to show banner to user about no mail app found or configured
             // Utilities.showErrorBanner(title: "No mail account found", subtitle: "Please setup a mail account")
-            return //EXIT
+            return
         }
         
         let picker = MFMailComposeViewController()
@@ -29,8 +29,8 @@ class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
         picker.setToRecipients([to])
         picker.mailComposeDelegate = self
         
-        let someArrayInString = (buttonPressData.compactMap({ (key) -> String in
-            return "\(key)\n"
+        let someArrayInString = (buttonPressData.compactMap({ (items) -> String in
+            return "\(items)\n"
         }) as Array).joined(separator: "")
         
         let fileName = getDocumentsDirectory().appendingPathComponent("output.txt")

@@ -100,7 +100,7 @@ struct TenButtonsView: View {
     }
     
     func sendEmailAndConvert() {
-        EmailHelper.shared.sendEmail(subject: "Fruit Fly Data", body: "", to: "adisonthereshiram@gmail.com")
+        EmailHelper.shared.sendEmail(subject: "Fruit Fly Data", body: "", to: "Jchaston@byu.edu")
     }
     
     func buttonPressed(button: String) {
